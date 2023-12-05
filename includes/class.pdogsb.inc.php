@@ -105,25 +105,22 @@ class PdoGsb
         return $requetePrepare->fetch();
     }
    
-    public function visiteur()
-    {
+    public function getVisiteurs(){
         $requetePrepare = PdoGsb::$monPdo->prepare(
-            'SELECT * from visiteur'
+            'SELECT * FROM VISITEUR'
         );
- 
-        $requetePrepare->execute();
-        return $requetePrepare->fetch();
-    
+         $requetePrepare->execute();
+        return $requetePrepare->fetchAll();
     }
 
-    public function fichesfrais()
+    public function getFichesFrais()
     {
         $requetePrepare = PdoGsb::$monPdo->prepare(
             'SELECT * from fichefrais'
         );
  
         $requetePrepare->execute();
-        return $requetePrepare->fetch();
+        return $requetePrepare->fetchAll();
     
     }
 
