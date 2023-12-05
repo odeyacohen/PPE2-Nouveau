@@ -32,7 +32,6 @@ case 'connexion':
     break;
 case 'validerfrais':
     include 'controleurs/c_validerfrais.php';
-    echo 'test';
      break;
 case 'accueil':
     include 'controleurs/c_accueil.php';

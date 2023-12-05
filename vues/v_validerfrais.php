@@ -10,7 +10,7 @@
     </select>
     <select name="fichesfrais" id="fichesfrais" >
     <?php
-                     foreach ($fichesfrais as $unMois){ ?>
+                     foreach ($fichefrais as $unMois){ ?>
                         <option value= <?= 'mois' ?> > <?= $unMois['mois'] ?>  </option>
                     <?php } ?>
        
