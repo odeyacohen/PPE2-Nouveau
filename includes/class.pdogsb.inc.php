@@ -113,7 +113,7 @@ class PdoGsb
         return $requetePrepare->fetchAll();
     }
 
-    public function getFichesFrais()
+    public function getMois()
     {
         $requetePrepare = PdoGsb::$monPdo->prepare(
             'SELECT * from fichefrais'
@@ -486,6 +486,11 @@ class PdoGsb
         $laLigne = $requetePrepare->fetch();
         return $laLigne;
     }
+
+   
+       
+
+    
 
     /**
      * Modifie l'état et la date de modification d'une fiche de frais.

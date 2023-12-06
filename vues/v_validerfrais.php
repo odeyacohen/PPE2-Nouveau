@@ -1,19 +1,34 @@
-<form action="test2.php">
-    <select name="visiteurs" id="visiteurs" >
+<h2>Valider les frais</h2>
+<div class="row">
+    <div class="col-md-4">
+        <h3>Sélectionner un visiteur et un mois : </h3>
+    </div>
+    <div class="col-md-4">
+
+
+<form action="index.php?uc=validerfrais&action=affichefrais" method="POST">
+<div class="form-group">
+    
+    <select name="visiteurs" id="visiteurs" class="form-control" >
     <?php
                     foreach ($visiteurs as $visiteur) {
-                        $id = $visiteur['id'];
+                        
                         $nom = $visiteur['nom'];
                             ?>
-        <option value="<?=$id?>"><?=$nom?></option>
+        <option value="<?=$visiteur['nom']?>"><?=$nom?></option>
         <?php }?>
     </select>
-    <select name="fichesfrais" id="fichesfrais" >
+    <select name="mois" id="mois" class="form-control">
     <?php
-                     foreach ($fichefrais as $unMois){ ?>
-                        <option value= <?= 'mois' ?> > <?= $unMois['mois'] ?>  </option>
+                     foreach ($mois as $unMois){ ?>
+                        <option value= <?=  $unMois['mois']  ?>  > <?= $unMois['mois'] ?>  </option>
                     <?php } ?>
        
     </select>
-
+    
+    <button class="btn btn-success" type="submit">Envoyer</button>
+</div>
 </form>
+
+    </div>
+</div>

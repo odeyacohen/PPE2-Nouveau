@@ -28,7 +28,7 @@ var_dump($fichesfrais);
     <select name="fichesfrais" id="fichesfrais" >
     <?php
                      foreach ($fichesfrais as $unMois){ ?>
-                        <option value= <?= 'mois' ?> > <?= $unMois['mois'] ?>  </option>
+                        <option value= <?=  $unMois['mois']  ?> > <?= $unMois['mois'] ?>  </option>
                     <?php } ?>
        
     </select>

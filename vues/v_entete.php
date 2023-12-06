@@ -61,6 +61,12 @@
                                     Afficher mes fiches de frais
                                 </a>
                             </li>
+                            <li <?php if ($uc == 'validerfrais') { ?>class="active"<?php } ?>>
+                                <a href="index.php?uc=validerfrais&action=selectUser">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                    Valider la fiche de frais
+                                </a>
+                            </li>
                             <li 
                             <?php if ($uc == 'deconnexion') { ?>class="active"<?php } ?>>
                                 <a href="index.php?uc=deconnexion&action=demandeDeconnexion">
