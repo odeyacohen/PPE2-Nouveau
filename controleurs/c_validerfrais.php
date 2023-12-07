@@ -26,6 +26,13 @@ switch ($action) {
     // on recupere les 2 tableau
     //On les affiche dans le formulaire avec les 2 listes deroulantes et le bouton ‘valide
     // VUE
+    $lesMois = $pdo->getLesMoisDisponibles($idVisiteur);
+    // Afin de sélectionner par défaut le dernier mois dans la zone de liste
+    // on demande toutes les clés, et on prend la première,
+    // les mois étant triés décroissants
+    $lesCles = array_keys($mois);
+    $moisASelectionner = $lesCles[0];
+    
     require 'vues/v_validerfrais.php';
     break;
 
@@ -39,6 +46,8 @@ case 'affichefrais' :
     $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur, $mois);
     $numAnnee = substr($mois, 0, 4);
     $numMois = substr($mois, 4, 2);
+  //  var_dump($_POST);
+    //var_dump($lesInfosFicheFrais);
     $libEtat = $lesInfosFicheFrais['libEtat'];
     $montantValide = $lesInfosFicheFrais['montantValide'];
     $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];

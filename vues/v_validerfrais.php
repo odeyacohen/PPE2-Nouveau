@@ -15,7 +15,7 @@
                         
                         $nom = $visiteur['nom'];
                             ?>
-        <option value="<?=$visiteur['nom']?>"><?=$nom?></option>
+        <option value="<?=$visiteur['id']?>"><?=$nom?></option>
         <?php }?>
     </select>
     <select name="mois" id="mois" class="form-control">
