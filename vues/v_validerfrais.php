@@ -25,6 +25,11 @@
                     <?php } ?>
        
     </select>
+    <?php
+    switch ($action) {
+        
+    }
+    ?>
     
     <button class="btn btn-success" type="submit">Envoyer</button>
 </div>

@@ -26,6 +26,8 @@ switch ($action) {
     // on recupere les 2 tableau
     //On les affiche dans le formulaire avec les 2 listes deroulantes et le bouton ‘valide
     // VUE
+    $idVisiteur = $_SESSION['idVisiteur'];
+    
     $lesMois = $pdo->getLesMoisDisponibles($idVisiteur);
     // Afin de sélectionner par défaut le dernier mois dans la zone de liste
     // on demande toutes les clés, et on prend la première,
@@ -37,17 +39,18 @@ switch ($action) {
     break;
 
 case 'affichefrais' :
-    //var_dump($_POST);
+   // var_dump($_POST);
    
-    $idVisiteur=$_POST['visiteurs'];
+    $idVisiteur = $_SESSION['idVisiteur'];
+    $mois = getMois(date('d/m/Y'));
     $mois=$_POST['mois'];
     $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur, $mois);
     $lesFraisForfait = $pdo->getLesFraisForfait($idVisiteur, $mois);
     $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur, $mois);
     $numAnnee = substr($mois, 0, 4);
     $numMois = substr($mois, 4, 2);
-  //  var_dump($_POST);
-    //var_dump($lesInfosFicheFrais);
+    //var_dump($_POST);
+    var_dump($lesInfosFicheFrais);
     $libEtat = $lesInfosFicheFrais['libEtat'];
     $montantValide = $lesInfosFicheFrais['montantValide'];
     $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
@@ -56,6 +59,21 @@ case 'affichefrais' :
 
     require 'vues/v_affichefrais.php';
     break;
+
+    case 'validerMajFraisForfait':
+     
+      $idVisiteur = $_SESSION['idVisiteur'];
+      $mois = getMois(date('d/m/Y'));
+      // $lesFrais = filter_input(INPUT_POST, 'lesFrais', FILTER_SANITIZE_STRING);
+      $lesFrais=$_POST['lesFrais'];
+       if (lesQteFraisValides($lesFrais)) {
+           $pdo->majFraisForfait($idVisiteur, $mois, $lesFrais);
+       } else {
+           ajouterErreur('Les valeurs des frais doivent être numériques');
+           include 'vues/v_erreurs.php';
+       }
+       require 'vues/v_affichefrais.php';
+       break;
 }
  
 ?>
