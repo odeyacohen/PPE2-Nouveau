@@ -428,6 +428,33 @@ class PdoGsb
         $requetePrepare->execute();
     }
 
+
+    public function recupererLibelle($idFrais)
+    {
+        $requetePrepare = PdoGSB::$monPdo->prepare(
+            'SELECT libelle from lignefraishorsforfait     
+            WHERE lignefraishorsforfait.id = :unIdFrais'       
+        );
+        $requetePrepare->bindParam(':unIdFrais', $idFrais, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        $laLigne = $requetePrepare->fetch();
+        return $laLigne;
+    }
+
+    public function modifierFraisHorsForfait($idFrais,$laLigne)
+    {
+       
+        $requetePrepare = PdoGSB::$monPdo->prepare(
+            'UPDATE lignefraishorsforfait
+            SET libelle = CONCAT("REFUSE : ", :laLigne)
+            WHERE id = :unIdFrais'        
+        );
+        $requetePrepare->bindParam(':unIdFrais', $idFrais, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':laLigne', $laLigne['libelle'], PDO::PARAM_STR);
+        $requetePrepare->execute();
+    }
+
+
     /**
      * Retourne les mois pour lesquel un visiteur a une fiche de frais
      *

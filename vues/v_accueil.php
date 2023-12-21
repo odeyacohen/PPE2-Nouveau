@@ -15,13 +15,16 @@
  */
 ?>
 <div id="accueil">
+
     <h2>
         Gestion des frais<small> - Visiteur : 
             <?php 
             echo $_SESSION['prenom'] . ' ' . $_SESSION['nom']
             ?></small>
     </h2>
+
 </div>
+
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-primary">
@@ -31,6 +34,10 @@
                     Navigation
                 </h3>
             </div>
+            <?php
+            $role = $_SESSION['role'];
+            if($role==0){
+                ?>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-xs-12 col-md-12">
@@ -45,6 +52,25 @@
                     </div>
                 </div>
             </div>
+            <?php }if($role==1){
+                ?>
+                <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        <a href="index.php?uc=validerfrais&action=selectUser"
+                           class="btn btn-success btn-lg" role="button">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <br>Valider la fiche de frais</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <?php
+            }
+            ?>
+
+            
         </div>
     </div>
 </div>

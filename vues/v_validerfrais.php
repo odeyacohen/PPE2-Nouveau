@@ -13,10 +13,14 @@
     <?php
                     foreach ($visiteurs as $visiteur) {
                         
+                        
                         $nom = $visiteur['nom'];
+
+                       
                             ?>
         <option value="<?=$visiteur['id']?>"><?=$nom?></option>
         <?php }?>
+        
     </select>
     <select name="mois" id="mois" class="form-control">
     <?php
