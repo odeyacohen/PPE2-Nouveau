@@ -56,5 +56,12 @@
             <?php
         }
         ?>
+       
+            
     </table>
+    
 </div>
+<form action="index.php?uc=suivi&action=mettreEnPaiement" 
+              method="post" role="form">
+              <input id="ok" type="submit" value="Mettre en paiement" class="btn btn-success" 
+                   role="button">

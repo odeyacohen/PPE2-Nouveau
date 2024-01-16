@@ -1,18 +1,42 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+
+
+    <?php
 
 ?>
 <h2>Mes fiches de frais</h2>
+
+<h3>Sélectionner un mois et un visiteur : </h3>
 <div class="row">
     <div class="col-md-4">
-        <h3>Sélectionner un mois : </h3>
+    <label for="lstVisiteur" accesskey="n">Visiteur : </label>
+
+    <select name="visiteurs" id="visiteurs" class="form-control" >
+    <?php
+                    foreach ($visiteurs as $visiteur) {
+                        
+                        
+                        $nom = $visiteur['nom'];
+
+                       
+                            ?>
+        <option value="<?=$visiteur['id']?>"><?=$nom?></option>
+        <?php }?>
+        
+    </select>
     </div>
     <div class="col-md-4">
-        <form action="index.php?uc=etatFrais&action=voirEtatFrais" 
+        <form action="index.php?uc=suivi&action=selectionnerPaiement" 
               method="post" role="form">
             <div class="form-group">
                 <label for="lstMois" accesskey="n">Mois : </label>
                 <select id="lstMois" name="lstMois" class="form-control">
-                    <?php
+                    
+          
+                        <?php 
                     foreach ($lesMois as $unMois) {
                         $mois = $unMois['mois'];
                         $numAnnee = $unMois['numAnnee'];
@@ -40,3 +64,11 @@
         </form>
     </div>
 </div>
+
+
+    
+</head>
+<body>
+    
+</body>
+</html>

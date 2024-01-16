@@ -1,18 +1,5 @@
 <?php
-/**
- * Vue Entête
- *
- * PHP Version 7
- *
- * @category  PPE
- * @package   GSB
- * @author    Réseau CERTA <contact@reseaucerta.org>
- * @author    José GIL <jgil@ac-nice.fr>
- * @copyright 2017 Réseau CERTA
- * @license   Réseau CERTA
- * @version   GIT: <0>
- * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
- */
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -68,13 +55,7 @@
                                             Afficher mes fiches de frais
                                         </a>
                                     </li>
-                                    <li <?php if ($uc == 'suiviPaiement') { ?>class="active"<?php } ?>>
-                                        <a href="index.php?uc=etatFrais&action=selectionnerMois">
-                                            <span class="glyphicon glyphicon-euro"></span>
-                                            Suivie Paiement
-                                        </a>
-                                    </li>
-                                    
+                                                                        
                                     <li 
                                     <?php if ($uc == 'deconnexion') { ?>class="active"<?php } ?>>
                                         <a href="index.php?uc=deconnexion&action=demandeDeconnexion">
@@ -116,6 +97,12 @@
                                                 Valider la fiche de frais
                                             </a>
                                         </li>
+                                        <li <?php if ($uc == 'suivi') { ?>class="active"<?php } ?>>
+                                        <a href="index.php?uc=suivi&action=suiviPaiement">
+                                            <span class="glyphicon glyphicon-euro"></span>
+                                            Suivie Paiement
+                                        </a>
+                                    </li>
                                         <li 
                                         <?php if ($uc == 'deconnexion') { ?>class="active"<?php } ?>>
                                             <a href="index.php?uc=deconnexion&action=demandeDeconnexion">
